@@ -32,6 +32,7 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
+![Twitter animation](https://user-images.githubusercontent.com/50122980/155627130-7a99a11e-7d2d-4ba8-9f24-47f364b43c80.gif)
 
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
