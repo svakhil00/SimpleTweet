@@ -36,7 +36,6 @@ public class ComposeActivity extends AppCompatActivity {
         btnTweet = findViewById(R.id.btnTweet);
 
         client = TwitterApp.getRestClient(this);
-        // set click listener on button
         btnTweet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,14 +49,11 @@ public class ComposeActivity extends AppCompatActivity {
                     return;
                 }
                 Toast.makeText(ComposeActivity.this, tweetContent, Toast.LENGTH_LONG).show();
-                // make an api call to twitter to publish tweet
                 client.publishTweet(tweetContent, new JsonHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Headers headers, JSON json) {
-                        Log.i(TAG, "onSuccess to publish tweet");
                         try {
                             Tweet tweet = Tweet.fromJson(json.jsonObject);
-                            Log.i(TAG, "Published tweet says: " + tweet.body);
                             Intent intent = new Intent();
                             intent.putExtra("tweet", Parcels.wrap(tweet));
                             setResult(RESULT_OK, intent);
@@ -69,8 +65,6 @@ public class ComposeActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(int statusCode, Headers headers, String response, Throwable throwable) {
-                        Log.e(TAG, "onFailure to publish tweet", throwable);
-
                     }
                 });
             }
